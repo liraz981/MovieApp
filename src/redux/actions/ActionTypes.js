@@ -1,2 +1,5 @@
 export const SET_MOVIE = "SET_MOVIE"
 export const SET_ALL_MOVIES = "SET_ALL_MOVIES"
+
+export const ADD_FAVORITE = "ADD_FAVORITE"
+export const REMOVE_FAVORITE = "REMOVE_FAVORITE"

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { getAllMovies, setMovie } from '../redux/actions'
 
@@ -18,15 +18,21 @@ export class Splash extends Component {
 
     render() {
         return (
-            <View style={{flex:1, alignItems:'center', justifyContent:'center'}}>
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor:'#ecebf1' }}>
 
                 <TouchableOpacity
-                    style={{ backgroundColor: '#add8e6', padding: 30, borderWidth:1 }}
+                    style={styles.button}
                     onPress={() => {
                         console.log("press");
                         this.props.navigation.navigate("Movies")
                     }}>
-                    <Text style={{color:'#1c1c1c', fontSize:30}}>Press for Movie List</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
+                        <Text style={styles.title}>Movie List</Text>
+                        <Image
+                            style={{ width: 30, height: 30, marginStart: 10 }}
+                            source={require('../assets/Image/movieIcon.png')}
+                        />
+                    </View>
                 </TouchableOpacity>
             </View>
         )
@@ -40,3 +46,19 @@ const mapDispatchToProps = {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash)
+
+export const styles = StyleSheet.create({
+    title: {
+        textAlign: 'center',
+        fontSize: 35,
+        color: '#1c1c1c',
+        //fontWeight: 'bold'
+    },
+    button: {
+        backgroundColor: '#b0e0e6',
+        padding: 30,
+        borderWidth: 1,
+        borderRadius: 30
+    }
+
+})
